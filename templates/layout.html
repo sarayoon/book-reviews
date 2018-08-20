@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to Sara's Website!</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-light bg-light border">
+            <div class="collapse navbar-collapse" id="navbar">
+                {% if session.user_id %}
+                    <ul class="navbar-nav ml-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/search">Search</a></li>
+                    </ul>
+                {% else %}
+                    <ul class="navbar-nav ml-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    </ul>
+                {% endif %}
+            </div>
+        </nav>
+        <h1>{% block heading %}{% endblock %}</h1>
+
+        {% block body %}
+        {% endblock %}
+
+    </body>
+</html>

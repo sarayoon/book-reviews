@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    {{result[0][2]}} - Book Detail
+{% endblock %}
+
+{% block body %}
+<p>
+<b>Title:</b> {{result[0][2]}}
+</p>
+<p>
+<b>Author:</b> {{result[0][3]}}
+</p>
+<p>
+<b>Book ID:</b> {{result[0][0]}}
+</p>
+<p>
+<b>ISBN:</b> {{result[0][1]}}
+</p>
+<p>
+<b>Publication Year:</b> {{result[0][4]}}
+</p>
+<p>
+<b>Number of Ratings:</b> {{apiRating["books"][0]["work_ratings_count"]}}
+</p>
+<p>
+<b>Average Rating:</b> {{apiRating["books"][0]["average_rating"]}}
+</p>
+<p>
+
+{
+	"title": {{result[0][2]}}
+	"author": {{result[0][3]}}
+	"year": {{result[0][4]}}
+	"isbn": {{result[0][1]}}
+	"review_count": {{apiRating["books"][0]["work_ratings_count"]}}
+	"average_score": {{apiRating["books"][0]["average_rating"]}}
+}
+{% endblock %}

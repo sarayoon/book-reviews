@@ -1,0 +1,37 @@
+<!-- users can search for a book!
+	they can type in:
+	- ISBN #
+	- title
+	or author,
+	after which the website will display a list of possible matching results
+	or a message if there were no matches.
+
+	search results should also work if user types in only part of a title, ISBN or author name.
+
+	from here, users can click on a book from the search results to go into detail >>
+	- title
+	- author
+	- publication year
+	- ISBN number
+	- any users users have left for the book
+	- also be able to submit a review
+		(scale of 1-5 as well as a text component to the review where the user can write their opinion about a book)
+		- users should not be able to submit multiple reviews for the same book
+		- also display (if available) the average rating and # of ratings the work has received from Goodreads.
+
+		# read flask documentation. this is now learning how to use flask.
+-->
+{% extends "layout.html" %}
+
+{% block heading %}
+    Welcome to the search Page! Please search for a book review.
+{% endblock %}
+
+{% block body %}
+  <form action="/search" method="post">
+      <div class="form-group">
+          <input autocomplete="off" autofocus class="form-control" name="bookinfo" placeholder="enter book here" type="text"/>
+      </div>
+      <button class="btn btn-primary" type="search">Search</button>
+  </form>
+{% endblock %}

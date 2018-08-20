@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    {{result[0][2]}} - Book Detail
+{% endblock %}
+
+{% block body %}
+<p>
+	<b>Title:</b> {{result[0][2]}}
+</p>
+<p>
+	<b>Author:</b> {{result[0][3]}}
+</p>
+<p>
+	<b>Book ID:</b> {{result[0][0]}}
+</p>
+<p>
+	<b>ISBN:</b> {{result[0][1]}}
+</p>
+<p>
+	<b>Publication Year:</b> {{result[0][4]}}
+</p>
+<p>
+	<b>Number of Ratings:</b> {{apiRating["books"][0]["work_ratings_count"]}}
+</p>
+<p>
+	<b>Average Rating:</b> {{apiRating["books"][0]["average_rating"]}}
+</p>
+<p>
+	<b>Previously Submitted Rating (if applicable): </b> {{reviewResult[0][3]}}
+</p>
+<p>
+	<b>Previously Submitted Review (if applicable): </b> {{reviewResult[0][4]}}
+</p>
+	Read the book? Submit review here!
+</p>
+<form action="/review" method="post">
+      <div class="form-group">
+          <input autocomplete="off" input size= 150 name="review" placeholder="type in review here" type="text"/>
+      </div>
+      <div class="form-group">
+          <input autocomplete="off" input size= 1 name="rating" placeholder="rating (1 - 5)" type="number"/>
+      </div>
+      <button class="btn btn-primary" type="text">Submit Review</button>
+ </form>
+
+{% endblock %}

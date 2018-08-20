@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Here are your search results:
+{% endblock %}
+
+{% block body %}
+
+There are {{len}} search results.
+
+<table>
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Author</th>
+			<th>Book Title</th>
+			<th>Author</th>
+			<th>Publication Year</th>
+			<th>Detailed View</th>
+		</tr>
+	</thead>
+
+	<tbody>
+	{% for item in range(0, len) %}
+		<tr>
+			{% for interval in range(0, 5) %}
+				<td>{{result[item][interval]}}</td>
+			{% endfor %}
+			<td>
+				<a href="{{ url_for('bookdetail', bookid = result[item][0])}}">View Book Detail</a>
+			</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
